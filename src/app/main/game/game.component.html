@@ -1,0 +1,26 @@
+<div (click)="start()" class="jp-game">
+  <div class="jp-game__header">
+    <div class="jp-game__stats">
+      <div class="jp-game__score">Score: {{ game.score | number: '.0-0' }}</div>
+      <div class="jp-game__coin-gold">
+        <img
+          src="assets/images/HUD/coin_gold.png"
+          alt="Coin"
+          height="24"
+        />&nbsp; {{ game.collectedCoins }}
+      </div>
+    </div>
+    <div (click)="pause()" class="jp-game__pause">
+      <img src="assets/images/HUD/pause.png" alt="Pause" height="24" />
+    </div>
+  </div>
+  <div class="jp-game__background">
+    <div *ngIf="!started" class="jp-game__game-start">TAP TO START</div>
+
+    <img src="assets/images/Background/bg_layer1.png" alt="Background" />
+    <img src="assets/images/Background/bg_layer2.png" alt="Background" />
+    <img src="assets/images/Background/bg_layer3.png" alt="Background" />
+    <img src="assets/images/Background/bg_layer4.png" alt="Background" />
+  </div>
+  <div class="jp-game__game" id="gameContainer"></div>
+</div>
