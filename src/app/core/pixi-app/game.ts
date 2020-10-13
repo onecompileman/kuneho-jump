@@ -58,6 +58,13 @@ export class Game {
 
   initGame() {
     this.isPause = false;
+
+    // if (innerWidth <= 620) {
+    //   PIXI.settings.RESOLUTION = window.devicePixelRatio;
+    // }
+    // Disable interpolation when scaling, will make texture be pixelated
+    PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
+    console.log('haha');
     this.p5 = new p5();
     const maxWidth = 620;
 
@@ -69,6 +76,7 @@ export class Game {
       transparent: true,
     });
 
+    this.containerEl.innerHTML = '';
     this.containerEl.appendChild(this.app.view);
 
     this.container = new PIXI.Container();
@@ -221,6 +229,8 @@ export class Game {
   }
 
   update(delta) {
+    console.log(this.isPause);
+
     if (!this.isPause) {
       this.updatePlayer(delta);
       this.updateBlocks(delta);
@@ -324,6 +334,12 @@ export class Game {
         this.router.navigate(['/']);
         this.app.stage.destroy(true);
       } else {
+        this.blocks = [];
+        this.particleSystems = [];
+        this.coins = [];
+        this.enemies = [];
+        this.app.stage.destroy(true);
+
         this.initGame();
       }
     });

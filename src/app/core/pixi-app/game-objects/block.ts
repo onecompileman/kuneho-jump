@@ -63,7 +63,7 @@ export class Block {
 
     this.particleTexture = this.particleTextures[textureIndex].map(
       (texture) => {
-        return `/assets/images/Particles/${texture}.png`;
+        return `assets/images/Particles/${texture}.png`;
       }
     );
 
@@ -72,7 +72,7 @@ export class Block {
       : { width: 146.25 * this.scale, height: 35.25 * this.scale };
 
     this.blockTexture = PIXI.Texture.from(
-      `/assets/images/Environment/${textureName}`
+      `assets/images/Environment/${textureName}`
     );
     this.sprite = new PIXI.Sprite(this.blockTexture);
     this.sprite.x = this.position.x;

@@ -2,8 +2,8 @@
   "theme_color": "#f69435",
   "background_color": "#f69435",
   "display": "fullscreen",
-  "scope": "/",
-  "start_url": "/",
+  "scope": "./",
+  "start_url": "./",
   "app_name": "Kuneho Jump",
   "short_name": "kuneho-jump",
   "icons": [

@@ -24,12 +24,15 @@ export class GameComponent implements OnInit {
   }
 
   start() {
-    this.started = true;
-    this.game.isPause = false;
+    if (!this.started) {
+      this.started = true;
+      this.game.isPause = false;
+    }
   }
 
   pause() {
     this.game.isPause = true;
+    console.log(this.game.isPause);
 
     Swal.fire({
       icon: 'info',
@@ -52,10 +55,10 @@ export class GameComponent implements OnInit {
     }).then((result) => {
       console.log(result);
       /* Read more about isConfirmed, isDenied below */
-      if (result) {
-        this.game.isPause = false;
-      } else {
+      if (result.dismiss) {
         this.router.navigate(['/']);
+      } else {
+        this.game.isPause = false;
       }
     });
   }

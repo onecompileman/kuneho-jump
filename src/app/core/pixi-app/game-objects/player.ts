@@ -24,10 +24,10 @@ export class Player {
     this.scale = scale;
 
     this.standTexture = PIXI.Texture.from(
-      '/assets/images/Players/bunny1_stand.png'
+      'assets/images/Players/bunny1_stand.png'
     );
     this.jumpTexture = PIXI.Texture.from(
-      '/assets/images/Players/bunny1_jump.png'
+      'assets/images/Players/bunny1_jump.png'
     );
 
     this.size = {
@@ -90,7 +90,9 @@ export class Player {
     }, 60);
     this.velocity.y = -8.5 * delta * this.scale;
     this.velocity.y =
-      this.velocity.y < -8.5 * this.scale ? -8.5 * this.scale : this.velocity.y;
+      this.velocity.y < -8.5 * this.scale
+        ? -8.5 * this.scale * delta
+        : this.velocity.y;
 
     console.log(this.velocity.y);
   }
