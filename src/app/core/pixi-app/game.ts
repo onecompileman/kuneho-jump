@@ -58,6 +58,7 @@ export class Game {
 
   initGame() {
     this.isPause = false;
+    this.score = 0;
 
     // if (innerWidth <= 620) {
     //   PIXI.settings.RESOLUTION = window.devicePixelRatio;
@@ -93,6 +94,11 @@ export class Game {
         -1 *
         (Math.abs(event.accelerationIncludingGravity.x) / 4) *
         this.scale;
+
+      this.player.velocity.x =
+        this.player.velocity.x < -3 ? -3 : this.player.velocity.x;
+      this.player.velocity.x =
+        this.player.velocity.x > 3 ? 3 : this.player.velocity.x;
     });
 
     document.addEventListener('keydown', (event) => {

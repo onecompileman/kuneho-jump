@@ -46,7 +46,7 @@ export class Player {
 
     this.velocity = new p5.Vector(0, 0);
     this.velocity.limit(8 * this.scale);
-    this.gravity = new p5.Vector(0, 0.07 * this.scale);
+    this.gravity = new p5.Vector(0, 0.12 * this.scale);
 
     this.sprite.x = this.position.x;
     this.sprite.y = this.position.y;
@@ -88,10 +88,10 @@ export class Player {
     setTimeout(() => {
       this.sprite.texture = this.jumpTexture;
     }, 60);
-    this.velocity.y = -8.5 * delta * this.scale;
+    this.velocity.y = -12.5 * delta * this.scale;
     this.velocity.y =
-      this.velocity.y < -8.5 * this.scale
-        ? -8.5 * this.scale * delta
+      this.velocity.y < -12.5 * this.scale
+        ? -12.5 * this.scale * delta
         : this.velocity.y;
 
     console.log(this.velocity.y);
